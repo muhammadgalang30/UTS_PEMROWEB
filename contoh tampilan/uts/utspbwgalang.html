@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Website Saya</title>
+  <style>
+    /* Reset dan dasar */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #6050dc 0%, #7b6ffb 100%);
+      color: #2e3a59;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      background-color: #1651d4;
+      padding: 30px 20px 40px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+      user-select: none;
+    }
+    nav {
+      margin: -25px 0 40px 0;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    nav button {
+      background-color: #3f63f8;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 10px 25px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+    nav button:hover,
+    nav button.active {
+      background-color: #2557de;
+    }
+    main {
+      width: 90%;
+      max-width: 900px;
+      background-color: #e9edf8;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+      padding: 40px 50px 60px 50px;
+      margin-bottom: 60px;
+      color: #2e3a59;
+      min-height: 450px;
+      position: relative;
+    }
+    /* Judul halaman - CENTERED */
+    main h2 {
+      font-size: 28px;
+      font-weight: 900;
+      margin: 0 auto 15px auto;
+      width: fit-content;
+      border-bottom: 3px solid #1651d4;
+      padding-bottom: 6px;
+      text-align: center;
+      display: block;
+    }
+    /* Sapaan khusus */
+    #sapaan {
+      font-weight: 700;
+      color: #1651d4;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 10px rgb(22 81 212 / 0.3);
+      user-select: none;
+      display: inline-block;
+      margin-bottom: 25px;
+      font-size: 18px;
+    }
+    /* Paragraph */
+    main p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      margin-bottom: 12px;
+      max-width: 800px;
+    }
+    /* Tabel pendidikan */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
+      user-select: none;
+    }
+    th, td {
+      padding: 14px 20px;
+      text-align: center;
+    }
+    thead {
+      background: linear-gradient(90deg, #2561f9, #0f48bf);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      user-select: none;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #dff0ff;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #f6f9ff;
+    }
+    tbody tr td {
+      font-weight: 600;
+      font-size: 15px;
+      color: #27374d;
+    }
+    /* Footer sederhana */
+    footer {
+      width: 100%;
+      background-color: #1d2a4f;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      font-weight: 500;
+      font-size: 14px;
+      user-select: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  Website Saya
+</header>
+
+<nav>
+  <button id="btnHome" class="active" onclick="tampilkanHalaman('home')">Home</button>
+  <button id="btnAbout" onclick="tampilkanHalaman('about')">About</button>
+  <button id="btnPendidikan" onclick="tampilkanHalaman('pendidikan')">Riwayat Pendidikan</button>
+</nav>
+
+<main id="mainContent">
+  <!-- Konten awal Home akan dimuat lewat JavaScript -->
+</main>
+
+<footer>
+  &copy; 2025 Website Saya. All rights reserved.
+</footer>
+
+<script>
+  // Simpan nama user secara global
+  let namaUser = '';
+
+  // Fungsi minta nama dan tampilkan sapaan
+  function mintaNama() {
+    namaUser = prompt("Masukkan nama Anda:");
+    namaUser = namaUser ? namaUser.trim() : '';
+    if (!namaUser) {
+      namaUser = '';
+    }
+  }
+
+  // Fungsi render halaman Home
+  function halamanHome() {
+    const sapaanText = namaUser ? `Selamat datang, ${namaUser}!` : 'Selamat datang!';
+    return `
+      <h2>Home</h2>
+      <div id="sapaan"><strong>${sapaanText}</strong></div>
+      <p>Selamat Datang di Dunia saya</p>
+      <p>
+        Di satu layar, ada baris-baris kode dan diagram alur sistem yang menantang untuk dipecahkan. Di layar lainnya, 
+        terbentang peta dunia yang penuh dengan pin-pin destinasi yang menunggu untuk dijelajahi. 
+        Inilah ruang di mana dua passion saya bersatu
+      </p>
+      <p>
+        Melalui website ini, saya mengundang Anda untuk menyelami perjalanan saya—baik dalam mengejar solusi digital
+         di dunia coding, maupun dalam menyingkap cerita perjalanan di berbagai tempat indah di dunia.
+      </p>
+    `;
+  }
+
+  // Fungsi render halaman About
+  function halamanAbout() {
+    return `
+      <h2>About</h2>
+      <p> Sebagai seorang mahasiswa Sistem Informasi, saya melihat dunia sebagai jaringan data yang saling
+        terhubung yang menunggu untuk dioptimalkan. Perjalanan akademis saya adalah petualangan intelektual untuk
+        memahami bagaimana teknologi dapat menjadi jembatan antara kebutuhan manusia dan solusi yang efisien. 
+        Mulai dari menganalisis alur bisnis, merancang basis data, hingga mempelajari keamanan siber, saya terus
+        diasah untuk memecahkan teka-teki kompleks di balik layar.</p>
+
+      <pNamun, di luar layar kampus dan kode program, ada dunia lain yang memanggil untuk dijelajahi: dunia nyata.
+       Sebagai pecinta travelling, saya menemukan gairah yang sama dalam memetakan rute perjalanan seperti halnya membuat
+        diagram alur sistern. Bagi saya, setiap destinasi baru-entah itu menyusuri
+        jalanan tua suatu kota, mendaki puncak gunung, atau sekadar mencicipi kuliner lokal adalah seperti
+        modul data hidup yang memperkaya pemahaman saya. tentang keragaman budaya dan manusia.</p>
+
+        <p> Dua dunia yang seemingly berbeda ini justru saling melengkapi dalam hidup saya. Ketajaman analitis yang saya
+        dapatkan dari studi Sistem Informasi membantu saya merencanakan perjalanan dengan lebih terstruktur dan adaptif.
+        Sebaliknya, pengalaman travelling mengajarkan saya tentang fleksibilitas, problem-solving di situasi tak terduga,
+        dan memahami perspektif pengguna secara langsung keterampilan soft skill yang sangat berharga bagi seorang calon 
+        profesional IT. Pada akhirnya, visi saya adalah untuk suatu hari nanti dapat menciptakan solusi teknologi yang
+         tidak hanya fungsional, tetapi juga terinspirasi dari kekayaan dan kompleksitas dunia yang telah saya jelajahi</p>
+    `;
+  }
+
+  // Fungsi render halaman Riwayat Pendidikan
+  function halamanPendidikan() {
+    return `
+      <h2>Riwayat Pendidikan</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tingkat</th>
+            <th>Nama Sekolah</th>
+            <th>Tahun Lulus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SD</strong></td><td>SDN 1 Margasari</td><td>2018</td></tr>
+          <tr><td><strong>SMP</strong></td><td>SMP 1 Luragung</td><td>2021</td></tr>
+          <tr><td><strong>SMA</strong></td><td>SMAN 1 Luragung</td><td>2024</td></tr>
+          <tr><td><strong>Perguruan Tinggi</strong></td><td>Universitas Widyatama</td><td>Ongoing</td></tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  // Fungsi untuk mengubah konten berdasarkan tombol yang diklik
+  function tampilkanHalaman(halaman) {
+    let konten = '';
+    let btnHome = document.getElementById('btnHome');
+    let btnAbout = document.getElementById('btnAbout');
+    let btnPendidikan = document.getElementById('btnPendidikan');
+
+    // Reset semua tombol non-active
+    btnHome.classList.remove('active');
+    btnAbout.classList.remove('active');
+    btnPendidikan.classList.remove('active');
+
+    switch(halaman) {
+      case 'home':
+        konten = halamanHome();
+        btnHome.classList.add('active');
+        break;
+      case 'about':
+        konten = halamanAbout();
+        btnAbout.classList.add('active');
+        break;
+      case 'pendidikan':
+        konten = halamanPendidikan();
+        btnPendidikan.classList.add('active');
+        break;
+      default:
+        konten = halamanHome();
+        btnHome.classList.add('active');
+    }
+
+    document.getElementById('mainContent').innerHTML = konten;
+  }
+
+  // Jalankan saat halaman dimuat
+  window.onload = function() {
+    mintaNama();
+    tampilkanHalaman('home');
+  }
+</script>
+
+</body>
+</html>
